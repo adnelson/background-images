@@ -13,7 +13,7 @@ def is_image_file(filename):
     return file_ext in IMG_EXTENSIONS
 
 if __name__ == "__main__":
-    images = filter(is_image_file, os.listdir(BG_IMAGES_DIR))
+    images = list(filter(is_image_file, os.listdir(BG_IMAGES_DIR)))
     bg_image = random.choice(images)
     print("New background: {}".format(bg_image))
     command = "feh --bg-scale '{}'".format(join(BG_IMAGES_DIR, bg_image))
